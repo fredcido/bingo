@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/build/css/style.min.css" />
   </head>
   <body>
+    <h2>Buttons</h2>
     <bingo-button>Default</bingo-button>
     <bingo-button variation="primary">Primary</bingo-button>
     <bingo-button variation="success">Success</bingo-button>
@@ -23,5 +24,28 @@
     <bingo-button size="big">Big button</bingo-button>
     <bingo-button size="small">Small button</bingo-button>
     <bingo-button size="block">Block button</bingo-button>
+
+    <h2>Card item</h2>
+    <bingo-card-item>1</bingo-card-item>
+    <bingo-card-item is-clickable="true">2</bingo-card-item>
+
+    <bingo-card-item>
+      <img
+        src="http://www.icons101.com/icons/40/Business_by_AhaSoft/128/casino.png"
+        alt="icon"
+      />
+    </bingo-card-item>
+
+    <h2>Card</h2>
+    <bingo-card items="2,3,5,6"></bingo-card>
+
+    <script>
+      document.querySelectorAll("bingo-card-item").forEach(card => {
+        card.addEventListener("onSelect", () => {
+          console.log("Selected");
+          card.isSelected = !card.isSelected;
+        });
+      });
+    </script>
   </body>
 </html>

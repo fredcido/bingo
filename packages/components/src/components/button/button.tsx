@@ -30,7 +30,7 @@ export class Button {
       "btn-sm": size === "small",
       "btn-lg": size === "big",
       "btn-block": size === "block",
-      "btn-link": Tag === "a"
+      "btn-link": Tag === "a" || variation == "link"
     };
 
     return (
