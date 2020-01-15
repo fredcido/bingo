@@ -5,7 +5,8 @@
     "precommit": "pretty-quick --staged",
     "commit": "git-cz",
     "release": "standard-version",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "lint": "lerna run lint"
   },
   "devDependencies": {
     "git-cz": "^3.3.0",
