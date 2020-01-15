@@ -4,7 +4,8 @@
   "scripts": {
     "precommit": "pretty-quick --staged",
     "commit": "git-cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "test": "lerna run test"
   },
   "devDependencies": {
     "git-cz": "^3.3.0",
