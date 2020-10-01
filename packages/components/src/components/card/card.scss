@@ -1,0 +1,8 @@
+.bingo-card {
+  display: flex;
+  justify-content: stretch;
+
+  &-item {
+    flex: 1;
+  }
+}

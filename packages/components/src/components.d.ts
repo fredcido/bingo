@@ -22,6 +22,14 @@ export namespace Components {
      */
     variation?: "primary" | "link" | "success" | "error";
   }
+  interface BingoCard {
+    icon?: string;
+    items: string;
+  }
+  interface BingoCardItem {
+    isClickable: boolean;
+    isSelected: boolean;
+  }
   interface MyComponent {
     /**
      * The first name
@@ -47,6 +55,22 @@ declare global {
     new (): HTMLBingoButtonElement;
   };
 
+  interface HTMLBingoCardElement
+    extends Components.BingoCard,
+      HTMLStencilElement {}
+  var HTMLBingoCardElement: {
+    prototype: HTMLBingoCardElement;
+    new (): HTMLBingoCardElement;
+  };
+
+  interface HTMLBingoCardItemElement
+    extends Components.BingoCardItem,
+      HTMLStencilElement {}
+  var HTMLBingoCardItemElement: {
+    prototype: HTMLBingoCardItemElement;
+    new (): HTMLBingoCardItemElement;
+  };
+
   interface HTMLMyComponentElement
     extends Components.MyComponent,
       HTMLStencilElement {}
@@ -56,6 +80,8 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     "bingo-button": HTMLBingoButtonElement;
+    "bingo-card": HTMLBingoCardElement;
+    "bingo-card-item": HTMLBingoCardItemElement;
     "my-component": HTMLMyComponentElement;
   }
 }
@@ -75,6 +101,15 @@ declare namespace LocalJSX {
      */
     variation?: "primary" | "link" | "success" | "error";
   }
+  interface BingoCard {
+    icon?: string;
+    items?: string;
+  }
+  interface BingoCardItem {
+    isClickable?: boolean;
+    isSelected?: boolean;
+    onOnSelect?: (event: CustomEvent<any>) => void;
+  }
   interface MyComponent {
     /**
      * The first name
@@ -92,6 +127,8 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     "bingo-button": BingoButton;
+    "bingo-card": BingoCard;
+    "bingo-card-item": BingoCardItem;
     "my-component": MyComponent;
   }
 }
@@ -103,6 +140,10 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       "bingo-button": LocalJSX.BingoButton &
         JSXBase.HTMLAttributes<HTMLBingoButtonElement>;
+      "bingo-card": LocalJSX.BingoCard &
+        JSXBase.HTMLAttributes<HTMLBingoCardElement>;
+      "bingo-card-item": LocalJSX.BingoCardItem &
+        JSXBase.HTMLAttributes<HTMLBingoCardItemElement>;
       "my-component": LocalJSX.MyComponent &
         JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
